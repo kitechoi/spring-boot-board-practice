@@ -19,7 +19,7 @@ public class BoardDTO {
 
     private String boardContents;
 
-    private int boardHits;
+    private int boardHits;  // 조회수
 
     private String createdAt;
 
