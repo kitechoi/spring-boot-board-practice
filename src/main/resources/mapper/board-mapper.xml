@@ -7,4 +7,8 @@
         INSERT INTO board_table (boardTitle, boardWriter, boardPass, boardContents)
         VALUES (#{boardTitle}, #{boardWriter}, #{boardPass}, #{boardContents});
     </insert>
+
+    <select id="findAll" resultType="board">
+        SELECT * FROM board_table ORDER BY id DESC;
+    </select>
 </mapper>

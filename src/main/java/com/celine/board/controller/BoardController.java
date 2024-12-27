@@ -3,10 +3,14 @@ package com.celine.board.controller;
 
 import com.celine.board.dto.BoardDTO;
 import com.celine.board.service.BoardService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,5 +27,13 @@ public class BoardController {
         System.out.println("boardDTO = " + boardDTO);
         boardService.save(boardDTO);
         return "index";
+    }
+
+    @GetMapping("/list")
+    public String findAll(Model model) {
+        List<BoardDTO> boardDTOList = boardService.findAll();
+        model.addAttribute("boardList", boardDTOList);
+        System.out.println("boardDTOList = " + boardDTOList);
+        return "list";
     }
 }

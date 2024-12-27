@@ -5,6 +5,8 @@ import com.celine.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 
@@ -13,5 +15,10 @@ public class BoardService {
 
     public void save(BoardDTO boardDTO) {
         boardRepository.save(boardDTO);
+    }
+
+
+    public List<BoardDTO> findAll() {
+        return boardRepository.findAll();
     }
 }
