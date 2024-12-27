@@ -3,11 +3,10 @@ package com.celine.board.repository;
 import com.celine.board.dto.BoardDTO;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-@Service
+@Repository
 @RequiredArgsConstructor
-
 public class BoardRepository {
     private final SqlSessionTemplate sql;
 
