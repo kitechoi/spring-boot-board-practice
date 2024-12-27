@@ -27,7 +27,7 @@ public class BoardController {
     public String save(BoardDTO boardDTO) {
         System.out.println("boardDTO = " + boardDTO);
         boardService.save(boardDTO);
-        return "index";
+        return "redirect:/list";
     }
 
     // 게시글 목록 조회
@@ -49,5 +49,22 @@ public class BoardController {
         model.addAttribute("board", boardDTO);
         System.out.println("boardDTO = " + boardDTO);
         return "detail";    // detail.html로 보낸다는 것
+    }
+
+    // 게시글 수정하기 (1. 조회하고 2. 수정해야 함)
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable("id") Long id, Model model) {
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board", boardDTO);
+        return "update";
+    }
+
+    // 수정할 내용 입력 받고, 업데이트 후 업데이트된 데이터 다시 조회
+    @PostMapping("/update/{id}")
+    public String update(BoardDTO boardDTO, Model model) {
+        boardService.update(boardDTO);
+        BoardDTO dto = boardService.findById(boardDTO.getId());
+        model.addAttribute("board", dto);
+        return "detail";
     }
 }
