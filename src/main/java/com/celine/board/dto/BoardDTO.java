@@ -3,6 +3,7 @@ package com.celine.board.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -22,5 +23,8 @@ public class BoardDTO {
     private int boardHits;  // 조회수
 
     private String createdAt;
+
+    private int fileAttached;   // 파일이 첨부됐는지 안됐는지 여부
+    private MultipartFile boardFile;    // 다중 파일을 담기 위한 필드
 
 }
