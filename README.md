@@ -6,6 +6,7 @@
 - **언어**: Java 17
 - **IDE**: IntelliJ IDEA 2024.2.3 (Community Edition)
 - **프레임워크**: Spring Boot 3.3.7
+- **데이터베이스**:  MySQL 8.0.40 
 - **템플릿 엔진**: Thymeleaf
 - **라이브러리**:
     - Spring Web
