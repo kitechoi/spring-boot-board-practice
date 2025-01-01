@@ -52,8 +52,8 @@ public class BoardController {
         System.out.println("boardDTO = " + boardDTO);
 
         if (boardDTO.getFileAttached() == 1) {
-            BoardFileDTO boardFileDTO = boardService.findFile(id);
-            model.addAttribute("boardFile", boardFileDTO);
+            List<BoardFileDTO> boardFileDTOList = boardService.findFile(id);
+            model.addAttribute("boardFileList", boardFileDTOList);
         }
 
         return "detail";    // detail.html로 보낸다는 것
