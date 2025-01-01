@@ -69,4 +69,11 @@ public class BoardController {
         model.addAttribute("board", dto);
         return "detail";
     }
+
+    // 게시글 삭제하기
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        boardService.delete(id);
+        return "redirect:/list";
+    }
 }
