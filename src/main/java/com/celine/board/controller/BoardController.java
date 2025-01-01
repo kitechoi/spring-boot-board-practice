@@ -52,6 +52,7 @@ public class BoardController {
     }
 
     // 게시글 수정하기 (1. 조회하고 2. 수정해야 함)
+    // 1. 조회하기
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") Long id, Model model) {
         BoardDTO boardDTO = boardService.findById(id);
@@ -59,6 +60,7 @@ public class BoardController {
         return "update";
     }
 
+    // 2. 수정하기
     // 수정할 내용 입력 받고, 업데이트 후 업데이트된 데이터 다시 조회
     @PostMapping("/update/{id}")
     public String update(BoardDTO boardDTO, Model model) {
